@@ -1,11 +1,13 @@
 import React, { createContext, useContext, useState } from "react";
 
-// Updated to remove setters from default context value
+// Providing a comprehensive default context value with no-op functions for setters
 const defaultContextValue = {
   htmlCode: "",
+  setHtmlCode: () => {}, // No-op function
   cssCode: "",
+  setCssCode: () => {}, // No-op function
   jsCode: "",
-  // Provide either a more generic handler or omit setters
+  setJsCode: () => {}, // No-op function
 };
 
 const CodeContext = createContext(defaultContextValue);
