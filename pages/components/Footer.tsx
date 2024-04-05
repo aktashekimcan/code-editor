@@ -1,37 +1,31 @@
-import React from 'react';
-import styled from 'styled-components';
-const FooterContainer = styled.footer`
-  background-color: #282c34;
-  color: #ffffff;
-  text-align: center;
-  padding: 20px 0;
-  margin-top: auto; // Flex container içinde footer'ı altta tutmak için
-`;
+import React from "react";
 
-const FooterText = styled.p`
-  margin: 0;
-  padding: 0;
-  font-size: 14px;
-`;
-
-const FooterLink = styled.a`
-  color: #61dafb;
-  text-decoration: none;
-
-  &:hover {
-    text-decoration: underline;
-  }
-`;
 const Footer = () => {
   return (
-    <FooterContainer>
-      <FooterText>
+    <footer
+      style={{
+        backgroundColor: "#282c34",
+        color: "#ffffff",
+        textAlign: "center",
+        padding: "20px 0",
+        marginTop: "auto",
+      }}
+    >
+      <p style={{ margin: "0", padding: "0", fontSize: "14px" }}>
         © 2024 Kod Editörü Uygulaması. Tüm hakları saklıdır.
-      </FooterText>
-      <FooterText>
-        Daha fazla bilgi için <FooterLink href="https://example.com">burayı ziyaret edin</FooterLink>.
-      </FooterText>
-    </FooterContainer>
+      </p>
+      <p style={{ margin: "0", padding: "0", fontSize: "14px" }}>
+        Daha fazla bilgi için{" "}
+        <a
+          href="https://example.com"
+          style={{ color: "#61dafb", textDecoration: "none" }}
+          className="hover:underline"
+        >
+          burayı ziyaret edin
+        </a>
+        .
+      </p>
+    </footer>
   );
 };
 
