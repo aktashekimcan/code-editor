@@ -1,14 +1,14 @@
 import React, { createContext, useContext, useState } from "react";
 
-// Provide a default context value that matches the shape of your context
-const CodeContext = createContext({
+// Updated to remove setters from default context value
+const defaultContextValue = {
   htmlCode: "",
-  setHtmlCode: () => {},
   cssCode: "",
-  setCssCode: () => {},
   jsCode: "",
-  setJsCode: () => {},
-});
+  // Provide either a more generic handler or omit setters
+};
+
+const CodeContext = createContext(defaultContextValue);
 
 export const useCode = () => useContext(CodeContext);
 
@@ -17,11 +17,14 @@ export const CodeProvider = ({ children }) => {
   const [cssCode, setCssCode] = useState("");
   const [jsCode, setJsCode] = useState("");
 
-  return (
-    <CodeContext.Provider
-      value={{ htmlCode, setHtmlCode, cssCode, setCssCode, jsCode, setJsCode }}
-    >
-      {children}
-    </CodeContext.Provider>
-  );
+  const value = {
+    htmlCode,
+    setHtmlCode,
+    cssCode,
+    setCssCode,
+    jsCode,
+    setJsCode,
+  };
+
+  return <CodeContext.Provider value={value}>{children}</CodeContext.Provider>;
 };
